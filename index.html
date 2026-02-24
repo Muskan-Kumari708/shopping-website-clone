@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =============== GLOBAL =============== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f3f3f3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* =============== NAVBAR =============== */
+
+        .navbar {
+            background: #111;
+            color: #fff;
+             position:sticky;
+             top:0;
+             z-index:1000;
+
+        }
+
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 12px 0;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .location {
+            font-size: 14px;
+        }
+
+        .search-bar {
+            flex: 1;
+            display: flex;
+            max-width: 600px;
+            min-width: 250px;
+        }
+
+        .search-bar select,
+        .search-bar input,
+        .search-bar button {
+            padding: 10px;
+            border: none;
+        }
+
+        .search-bar input {
+            flex: 1;
+        }
+
+        .search-bar button {
+            background: #f3a847;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        /* =============== PANEL =============== */
+
+        .panel {
+            background: #232f3e;
+            color: #fff;
+        }
+
+        .panel-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        /* =============== HERO =============== */
+
+        .hero {
+            width: 100%;
+            height: 50vh;
+            min-height: 280px;
+            background: url('https://images-eu.ssl-images-amazon.com/images/G/31/Events/img25/Nimesh/AugART_8PM_PC_H1_ends_tom_2x._CB803253192_.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .hero-msg {
+            background: white;
+            padding: 15px 25px;
+            margin: 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        /* =============== SHOP GRID =============== */
+
+        .shop {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 40px 0;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            margin: 15px 0;
+        }
+
+        /* =============== PRODUCT ROW =============== */
+
+        .product-row {
+            background: white;
+            padding: 30px 0;
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+        }
+
+        .product-row img {
+            height: 200px;
+            min-width: 170px;
+            object-fit: contain;
+        }
+
+        /* =============== SIGNIN =============== */
+
+        .signin {
+            background: white;
+            padding: 40px 20px;
+            margin: 40px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .signin button {
+            padding: 12px 30px;
+            background: #ffd814;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* =============== FOOTER =============== */
+
+        .footer {
+            background: #232f3e;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin: 6px 0;
+        }
+
+        /* =============== RESPONSIVE BREAKPOINTS =============== */
+
+        /* Laptop */
+        @media(max-width:1200px) {
+            .hero {
+                height: 45vh;
+            }
+        }
+
+        /* Tablet */
+        @media(max-width:768px) {
+
+            .location,
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                height: 35vh;
+            }
+
+            .box img {
+                height: 200px;
+            }
+        }
+
+        /* Mobile */
+        @media(max-width:480px) {
+
+            .navbar-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .hero {
+                height: 30vh;
+                min-height: 200px;
+            }
+
+            .box img {
+                height: 180px;
+            }
+
+            .product-row img {
+                height: 150px;
+            }
+
+            .signin {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="container navbar-inner">
+            <div class="logo">My Store</div>
+            <div class="location">Delivering to Mumbai 400001</div>
+
+            <div class="search-bar">
+                <select>
+                    <option>All</option>
+                </select>
+                <input type="text" placeholder="Search products">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+
+            <div class="nav-links">
+                <div>Account</div>
+                <div>Orders</div>
+                <div><i class="fa fa-shopping-cart"></i> Cart</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL -->
+    <div class="panel">
+        <div class="container panel-inner">
+            <div>All</div>
+            <div>Today's Deals</div>
+            <div>Customer Service</div>
+            <div>Gift Cards</div>
+            <div>Sell</div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-msg">
+            Welcome to My Store. Enjoy great deals with fast delivery.
+        </div>
+    </div>
+
+    <!-- SHOP -->
+    <div class="container">
+        <div class="shop">
+            <div class="box">
+                <h3>Up to 75% off | Electronics</h3>
+                <img
+                    src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/CEPC/Tablets/Hero/Associatess/PC_CC_758x60810.5x._SY304_CB804957162_.jpg">
+                <p>See more</p>
+            </div>
+
+            <div class="box">
+                <h3>Up to 80% off | Home & Kitchen</h3>
+                <img
+                    src="https://images-eu.ssl-images-amazon.com/images/G/31/OHL/PAYAL/GW/AugART25/PC_QC_372x232-2-1x_home._SY116_CB804590709_.jpg">
+                <p>See more</p>
+            </div>
+
+            <div class="box">
+                <h3>Up to 50% off | Appliances</h3>
+                <img
+                    src="https://images-eu.ssl-images-amazon.com/images/G/31/img19/OOC/Gateway/2025/Aug/PC_CC_379x304_._SY304_CB804803745_.jpg">
+                <p>See more</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT ROW -->
+    <div class="container">
+        <div class="product-row">
+            <img src="https://m.media-amazon.com/images/I/51FF5ZTyoyL._AC_SY200_.jpg">
+            <img src="https://m.media-amazon.com/images/I/41weWR13HDL._AC_SY200_.jpg">
+            <img src="https://m.media-amazon.com/images/I/41sXjSVQrbL._AC_SY200_.jpg">
+            <img src="https://m.media-amazon.com/images/I/518i9EgA+xL._AC_SY200_.jpg">
+            <img src="https://m.media-amazon.com/images/I/51Y2UGLW+bL._AC_SY200_.jpg">
+        </div>
+    </div>
+
+    <!-- SIGNIN -->
+    <div class="container">
+        <div class="signin">
+            <h2>See personalized recommendations</h2>
+            <button>Sign In</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="container footer-inner">
+            <div>
+                <h3>Get to Know Us</h3>
+                <p>About Us</p>
+                <p>Careers</p>
+                <p>Press Releases</p>
+            </div>
+            <div>
+                <h3>Connect with Us</h3>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+            </div>
+            <div>
+                <h3>Make Money with Us</h3>
+                <p>Sell on Store</p>
+                <p>Affiliate Program</p>
+                <p>Advertise Products</p>
+            </div>
+            <div>
+                <h3>Let Us Help You</h3>
+                <p>Returns</p>
+                <p>Help</p>
+                <p>Support</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
