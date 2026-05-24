@@ -1,5 +1,4 @@
-  <style>
-        /* =============== GLOBAL =============== */
+
 
         * {
             margin: 0;
@@ -18,8 +17,6 @@
             margin: auto;
             padding: 0 20px;
         }
-
-        /* =============== NAVBAR =============== */
 
         .navbar {
             background: #111;
@@ -77,8 +74,6 @@
             font-size: 14px;
         }
 
-        /* =============== PANEL =============== */
-
         .panel {
             background: #232f3e;
             color: #fff;
@@ -92,7 +87,7 @@
             font-size: 14px;
         }
 
-        /* =============== HERO =============== */
+        
 
         .hero {
             width: 100%;
@@ -141,7 +136,7 @@
             margin: 15px 0;
         }
 
-        /* =============== PRODUCT ROW =============== */
+        
 
         .product-row {
             background: white;
@@ -157,7 +152,7 @@
             object-fit: contain;
         }
 
-        /* =============== SIGNIN =============== */
+        
 
         .signin {
             background: white;
@@ -175,7 +170,7 @@
             cursor: pointer;
         }
 
-        /* =============== FOOTER =============== */
+        
 
         .footer {
             background: #232f3e;
@@ -198,7 +193,7 @@
             margin: 6px 0;
         }
 
-        /* =============== RESPONSIVE BREAKPOINTS =============== */
+        
 
         /* Laptop */
         @media(max-width:1200px) {
@@ -253,4 +248,4 @@
                 padding: 30px 15px;
             }
         }
-    </style>
+    
